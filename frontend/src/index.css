@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fade-in suave */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.18s ease-out;
+}
+
+/* =============================== */
+/*         FONDO DARK GLOW         */
+/* =============================== */
+
+body {
+  @apply text-white;
+  background: radial-gradient(circle at 20% 30%, #0a0f1f, #05060a, #000000);
+  background-size: 180% 180%;
+  animation: bgGlow 18s ease-in-out infinite;
+  overflow-x: hidden;
+}
+
+@keyframes bgGlow {
+  0%   { background-position: 20% 30%; }
+  50%  { background-position: 80% 70%; }
+  100% { background-position: 20% 30%; }
+}
+
+/* Contenedor general */
+.app-bg {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ========================================= */
+/*               LUCIÉRNAGAS AVANZADAS       */
+/* ========================================= */
+
+.firefly {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+
+  /* Luz central mucho más intensa */
+  background: radial-gradient(circle,
+      rgba(255, 255, 220, 1) 0%,
+      rgba(255, 255, 200, 0.4) 40%,
+      rgba(255, 255, 200, 0) 100%
+  );
+
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.9;
+
+  /* AURA + RESPLANDOR */
+  filter: drop-shadow(0 0 8px rgba(255, 255, 200, 0.9))
+          drop-shadow(0 0 14px rgba(255, 255, 150, 0.7))
+          drop-shadow(0 0 22px rgba(255, 255, 150, 0.4));
+
+  animation:
+    pulseFirefly 3.8s ease-in-out infinite,
+    driftFirefly 20s infinite linear;
+}
+
+/* Pulso luminoso más marcado */
+@keyframes pulseFirefly {
+  0%   { transform: scale(0.7); opacity: 0.7; }
+  50%  { transform: scale(1.6); opacity: 1; }
+  100% { transform: scale(0.7); opacity: 0.7; }
+}
+
+/* Movimiento totalmente orgánico */
+@keyframes driftFirefly {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(90px, -70px); }
+  40%  { transform: translate(-70px, 50px); }
+  60%  { transform: translate(110px, 40px); }
+  80%  { transform: translate(-90px, -30px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* =============================== */
+/*   25 LUCES CON DISTINTOS TIEMPOS */
+/* =============================== */
+
+.firefly:nth-child(1)  { top: 12%; left: 15%; animation-duration: 18s, 3.2s; }
+.firefly:nth-child(2)  { top: 42%; left: 72%; animation-duration: 22s, 4s; }
+.firefly:nth-child(3)  { top: 68%; left: 28%; animation-duration: 26s, 3.7s; }
+.firefly:nth-child(4)  { top: 18%; left: 82%; animation-duration: 20s, 3.1s; }
+.firefly:nth-child(5)  { top: 78%; left: 55%; animation-duration: 23s, 3.5s; }
+.firefly:nth-child(6)  { top: 58%; left: 12%; animation-duration: 19s, 2.8s; }
+.firefly:nth-child(7)  { top: 88%; left: 62%; animation-duration: 27s, 4.4s; }
+.firefly:nth-child(8)  { top: 22%; left: 92%; animation-duration: 25s, 3.4s; }
+.firefly:nth-child(9)  { top: 8%;  left: 42%; animation-duration: 21s, 3s; }
+.firefly:nth-child(10) { top: 52%; left: 4%;  animation-duration: 24s, 3.8s; }
+
+.firefly:nth-child(11) { top: 16%; left: 64%; animation-duration: 28s, 3.1s; }
+.firefly:nth-child(12) { top: 34%; left: 18%; animation-duration: 22s, 4.3s; }
+.firefly:nth-child(13) { top: 74%; left: 78%; animation-duration: 30s, 3.9s; }
+.firefly:nth-child(14) { top: 84%; left: 24%; animation-duration: 26s, 2.9s; }
+.firefly:nth-child(15) { top: 48%; left: 95%; animation-duration: 32s, 4.5s; }
+
+.firefly:nth-child(16) { top: 14%; left: 48%; animation-duration: 27s, 3.4s; }
+.firefly:nth-child(17) { top: 66%; left: 10%; animation-duration: 25s, 3.2s; }
+.firefly:nth-child(18) { top: 90%; left: 36%; animation-duration: 22s, 2.8s; }
+.firefly:nth-child(19) { top: 26%; left: 56%; animation-duration: 24s, 3.3s; }
+.firefly:nth-child(20) { top: 62%; left: 86%; animation-duration: 29s, 3.7s; }
+
+.firefly:nth-child(21) { top: 6%;  left: 70%; animation-duration: 23s, 3.1s; }
+.firefly:nth-child(22) { top: 38%; left: 86%; animation-duration: 28s, 4.2s; }
+.firefly:nth-child(23) { top: 70%; left: 58%; animation-duration: 27s, 3.5s; }
+.firefly:nth-child(24) { top: 10%; left: 32%; animation-duration: 22s, 3.6s; }
+.firefly:nth-child(25) { top: 94%; left: 50%; animation-duration: 31s, 4.3s; }
