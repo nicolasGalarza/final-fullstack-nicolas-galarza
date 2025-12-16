@@ -1,18 +1,26 @@
 # 📌 ToDo App Fullstack
 
-Este es el proyecto final del curso de Desarrollo Fullstack.  
-Se trata de una aplicación **ToDo List** que permite a los usuarios:
+Proyecto final del curso de **Desarrollo Fullstack – BIOS**.  
+Aplicación **ToDo List** con autenticación que permite a los usuarios gestionar sus tareas de forma segura.
 
-- Registrarse con un nickname, email y contraseña.
-- Iniciar sesión con autenticación segura.
-- Crear, leer, actualizar y eliminar tareas propias.
-- Cambiar su avatar.
-- Compartir el enlace de la aplicación.
+---
 
-La aplicación está dividida en dos partes:
+## ✨ Funcionalidades
 
-- **Backend**: API REST con Node.js, Express y MongoDB.
-- **Frontend**: Interfaz de usuario en React con Vite y TailwindCSS.
+- Registro de usuarios (nickname, email y contraseña)
+- Login con autenticación JWT
+- CRUD completo de tareas (crear, leer, editar y eliminar)
+- Cambio de avatar
+- Acceso protegido: cada usuario ve solo sus tareas
+
+---
+
+## 🏗️ Arquitectura
+
+El proyecto está dividido en dos partes independientes:
+
+- **Backend**: API REST desarrollada con Node.js, Express y MongoDB  
+- **Frontend**: Aplicación React creada con Vite y estilada con TailwindCSS
 
 ---
 
@@ -22,22 +30,26 @@ La aplicación está dividida en dos partes:
 final-fullstack-nicolas-galarza/
 │
 ├── backend/
+│   ├── config/
 │   ├── controllers/
 │   ├── middleware/
 │   ├── models/
 │   ├── routes/
-│   ├── .env
-│   └── index.js
+│   ├── .gitignore
+│   ├── .env.example
+│   ├── index.js
+│   ├── package.json
+│   └── package-lock.json
 │
 └── frontend/
     ├── public/
     ├── src/
+    │   ├── assets/
     │   ├── components/
     │   ├── content/
     │   ├── hooks/
     │   ├── pages/
     │   ├── services/
-    │   ├── data/
     │   ├── App.jsx
     │   ├── main.jsx
     │   └── index.css
@@ -52,8 +64,7 @@ final-fullstack-nicolas-galarza/
 ### Backend
 - Node.js
 - Express
-- MongoDB
-- Mongoose
+- MongoDB + Mongoose
 - JWT
 - bcryptjs
 - dotenv
@@ -62,24 +73,43 @@ final-fullstack-nicolas-galarza/
 
 ### Frontend
 - React
+- Vite
 - React Router DOM
 - TailwindCSS
-- Vite
 - Context API
 
 ---
 
-## 🚀 Instalación y ejecución
+## ⚙️ Instalación y ejecución
+
+### 🔧 Requisitos
+- Node.js v18 o superior
+- MongoDB local
+
+---
 
 ### Backend
 
 ```bash
 cd backend
 npm install
+```
+
+Crear un archivo `.env` basado en `.env.example`:
+
+```env
+PORT=4000
+MONGO_URI=mongodb://127.0.0.1:27017/todoDB
+JWT_SECRET=your_secret_here
+```
+
+Ejecutar servidor:
+
+```bash
 npm run dev
 ```
 
-Servidor en:
+Servidor disponible en:
 ```
 http://localhost:4000
 ```
@@ -94,7 +124,7 @@ npm install
 npm run dev
 ```
 
-Aplicación en:
+Aplicación disponible en:
 ```
 http://localhost:5173
 ```
@@ -103,28 +133,30 @@ http://localhost:5173
 
 ## 🔐 Seguridad
 
-- Autenticación con JWT
+- Autenticación basada en JWT
 - Rutas protegidas
-- Contraseñas encriptadas
-- Cada usuario accede solo a sus tareas
+- Contraseñas encriptadas con bcrypt
+- Acceso restringido a recursos propios
 
 ---
 
-## 🧪 Pruebas con Postman
+## 🧪 Pruebas
 
-- Registro
-- Login (token)
+La API fue probada con **Postman**, validando:
+- Registro de usuarios
+- Login y generación de token
 - CRUD de tareas con autorización
 
 ---
 
 ## 🎥 Video demostración
 
-https://www.youtube.com/watch?v=6X0sxiD9jRg
+👉 https://www.youtube.com/watch?v=6X0sxiD9jRg
 
 ---
 
 ## 👨‍💻 Autor
 
 **Nicolás Galarza**  
-Proyecto Final Fullstack – BIOS
+Proyecto Final – Desarrollo Fullstack  
+Academia BIOS
